@@ -7,7 +7,7 @@ char crp_message[9000];
 char crp_message2[9000];
 char dec_message[9000];
 char crp_message_x[9000];
-char crp_message_x2[9000];
+char crp_message_x2[10000];
 int count[9000];
 
 void read_crypted_message(){
