@@ -5,80 +5,79 @@
 #include "functions.h"
 #include "variable.h"
 
-char crp_message[9000];
-char crp_message2[9000];
-char dec_message[9000];
-char crp_message_x[9000];
-char crp_message_x2[10000];
+char crypted_message_2[900000];
+char crp_message_copy[9000];
+char decrypted_message_2[10000];
+
 int count[9000];
 
 void read_crypted_message(){
 
-    strcpy(crp_message,c);
+    strcpy(crypted_message_2,c);
 }
 
 void decrypt_message(){
-    int i;
-    int j=0;
+    int iterator_1;
+    int iterator_2=0;
     int x;
     int p;
 
-    p=strlen(crp_message);
-    x=crp_message[0];
+    p=strlen(crypted_message_2);
+    x=crypted_message_2[0];
 
-    for(i=0;i<=256;i++)
-        count[i]=1;
+    for(iterator_1=0;iterator_1<=256;iterator_1++)
+        count[iterator_1]=1;
 
-    for(i=0;i<=p-2;i++){
+    for(iterator_1=0;iterator_1<=p-2;iterator_1++){
 
-        if(crp_message[i]==crp_message[i+1]){
-            x=crp_message[i];
+        if(crypted_message_2[iterator_1]==crypted_message_2[iterator_1+1]){
+            x=crypted_message_2[iterator_1];
             count[x]++;
         }
 
-        if((crp_message[i]!=crp_message[i+1])&&(isprime(count[x]))){
+        if((crypted_message_2[iterator_1]!=crypted_message_2[iterator_1+1])&&(isprime(count[x]))){
 
-            dec_message[j]=crp_message[i];
-            dec_message[j+1]='\0';
-            j++;
+            decrypted_message_2[iterator_2]=crypted_message_2[iterator_1];
+            decrypted_message_2[iterator_2+1]='\0';
+            iterator_2++;
             count[x]=1;
 
         }
         else
-            if((!isprime(count[x]))&&(crp_message[i]!=crp_message[i+1])){
+            if((!isprime(count[x]))&&(crypted_message_2[iterator_1]!=crypted_message_2[iterator_1+1])){
                 count[x]=1;
             }
 
     }
 
-    strcpy(crp_message2,crp_message);
-    strrev(crp_message2);
-    x=crp_message2[0];
+    strcpy(crp_message_copy,crypted_message_2);
+    strrev(crp_message_copy);
+    x=crp_message_copy[0];
     count[x]=1;
-    i=0;
-    if(crp_message2[i]!=crp_message2[i+1]){
-        dec_message[j]=crp_message2[0];
-        j++;
-        dec_message[j]='\0';
+    iterator_1=0;
+    if(crp_message_copy[iterator_1]!=crp_message_copy[iterator_1+1]){
+        decrypted_message_2[iterator_2]=crp_message_copy[0];
+        iterator_2++;
+        decrypted_message_2[iterator_2]='\0';
 
     }
     else{
-    while(crp_message2[i]==crp_message2[i+1]){
+    while(crp_message_copy[iterator_1]==crp_message_copy[iterator_1+1]){
         count[x]++;
-        i++;
+        iterator_1++;
    }
 
     if(isprime(count[x])){
-        dec_message[j]=crp_message2[0];
-        j++;
+        decrypted_message_2[iterator_2]=crp_message_copy[0];
+        iterator_2++;
     }
-    dec_message[j]='\0';}
+    decrypted_message_2[iterator_2]='\0';}
 }
 
 void print_decrypted_message(){
-    if(dec_message[0]!='\0'){
+    if(decrypted_message_2[0]!='\0'){
         printf("\nThe decrypted message is: \n");
-        printf("%s",dec_message);
+        printf("%s",decrypted_message_2);
     }
     else
     {

@@ -2,14 +2,14 @@
 #include<stdlib.h>
 #include<string.h>
 
-int isprime(int x){
-    if(x==0)
+int isprime(int number){
+    if(number==0)
         return 0;
-    int i=2;
-    while(i<=x-1){
-        if(x%i==0)
+    int iterator=2;
+    while(iterator<=number-1){
+        if(number%iterator==0)
             return 0;
-        i++;
+        iterator++;
     }
     return 1;
 }

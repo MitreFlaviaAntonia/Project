@@ -4,15 +4,15 @@
 #include "variable.h"
 
 char c[10000];
-char * get_random(){
+char * get_pointer_to_text(){
     return c;
 }
 int main(){
 
     char dec_message[10000];
-    FILE *fptr;
+    FILE *file_pointer;
 
-    if ((fptr = fopen("test.txt", "r")) == NULL)
+    if ((file_pointer = fopen("test.txt", "r")) == NULL)
     {
         printf("Error! opening file");
         // Program exits if file pointer returns NULL.
@@ -20,11 +20,11 @@ int main(){
     }
 
     // reads text until newline
-    fscanf(fptr,"%[^\n]", c);
+    fscanf(file_pointer,"%[^\n]", c);
 
     //strcpy(dec_message,c);
     //printf("Data from the file:\n%s", dec_message);
-    fclose(fptr);
+    fclose(file_pointer);
 
     read_decrypted_message();
     crypt_message();
@@ -32,5 +32,4 @@ int main(){
     read_crypted_message();
     decrypt_message();
     print_decrypted_message();
-    printf("\n");
 }
