@@ -16,7 +16,7 @@ void read_crypted_message(){
     strcpy(crypted_message_2,c);
 
 }
-
+\
 void decrypt_message(){
     int iterator_1;
     int decrypted_message_2_length=0;
@@ -69,16 +69,17 @@ void decrypt_message(){
 
     }
     else{
-    while(crp_message_copy[iterator_1]==crp_message_copy[iterator_1+1]){
-        count[letter]++;
-        iterator_1++;
-   }
+        while(crp_message_copy[iterator_1]==crp_message_copy[iterator_1+1]){
+            count[letter]++;
+            iterator_1++;
+        }
 
-    if(isprime(count[letter])){
-        decrypted_message_2[decrypted_message_2_length]=crp_message_copy[0];
-        decrypted_message_2_length++;
+        if(isprime(count[letter])){
+            decrypted_message_2[decrypted_message_2_length]=crp_message_copy[0];
+            decrypted_message_2_length++;
+        }
+        decrypted_message_2[decrypted_message_2_length]='\0';
     }
-    decrypted_message_2[decrypted_message_2_length]='\0';}
 }
 
 void print_decrypted_message(){
