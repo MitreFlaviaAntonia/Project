@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include "variable.h"
 
-char c[10000];
+char c[10000000];
 char * get_pointer_to_text(){
     return c;
 }
 int main(){
 
-    char dec_message[10000];
+    char dec_message[1000000];
     FILE *file_pointer;
 
     if ((file_pointer = fopen("test.txt", "r")) == NULL)

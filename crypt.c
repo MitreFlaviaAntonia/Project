@@ -5,16 +5,16 @@
 #include "variable.h"
 
 
-char crypted_message_1[900000];
-char decrypted_message_1[10010];
-char aux_string[10000];
+char crypted_message_1[90000000];
+char decrypted_message_1[1000000];
+char aux_string[10000000];
 
 void read_decrypted_message(){
 
     char *pointer;
     int iterator;
     pointer = get_pointer_to_text();
-    for ( iterator = 0; iterator < 9500; iterator++ ) {
+    for ( iterator = 0; iterator < 1000000; iterator++ ) {
         aux_string[iterator]=*(pointer+iterator);
     }
 
@@ -75,7 +75,7 @@ void crypt_message(){
 
 void print_crypted_message(){
 
-    printf("The crypted message is: \n");
-    printf("%s",crypted_message_1);
+    printf("\n    The crypted message is: \n\n");
+    printf("    %s",crypted_message_1);
 
 }
