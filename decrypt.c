@@ -16,7 +16,7 @@ void read_crypted_message(){
     strcpy(crypted_message_2,c);
 
 }
-\
+
 void decrypt_message(){
     int iterator_1;
     int decrypted_message_2_length=0;
